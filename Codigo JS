@@ -1,0 +1,181 @@
+function showPage(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+
+if(id==="map"){
+setTimeout(()=>{ if(window.map) window.map.invalidateSize(); },300);
+initMap();
+}
+}
+
+/* MAP */
+let mapLoaded=false;
+
+function initMap(){
+if(mapLoaded) return;
+mapLoaded=true;
+
+window.map = L.map('mapBox').setView([42.35,13.40],8);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+attribution:'OpenStreetMap'
+}).addTo(window.map);
+
+L.marker([42.35,13.40]).addTo(window.map).bindPopup("Gran Sasso");
+L.marker([42.08,13.93]).addTo(window.map).bindPopup("Parco Nazionale d'Abruzzo");
+L.marker([42.35,13.40]).addTo(window.map).bindPopup("L'Aquila");
+}
+
+/* TRANSLATIONS */
+const translations = {
+
+it:{
+nav_home:"Home",
+nav_nature:"Natura",
+nav_culture:"Cultura",
+nav_food:"Cucina",
+nav_map:"Mappa",
+
+home_title:"Abruzzo Explorer",
+home_text_1:"L’Abruzzo è una regione tra mare e montagna, con paesaggi incredibilmente vari.",
+home_text_2:"Dalle spiagge dell’Adriatico alle vette del Gran Sasso, il territorio è unico.",
+home_text_3:"È una terra autentica e ancora poco contaminata dal turismo di massa.",
+home_text_4:"Qui la natura è protagonista in ogni stagione dell’anno.",
+home_text_5:"I borghi medievali conservano tradizioni antichissime.",
+home_text_6:"Un luogo perfetto per chi cerca autenticità e silenzio.",
+home_button:"Scopri la natura",
+
+nature_title:"Natura selvaggia",
+nature_text_1:"L’Abruzzo è uno dei territori più verdi d’Europa.",
+nature_text_2:"Il Parco Nazionale protegge specie rare come orso marsicano.",
+nature_text_3:"Il lupo appenninico vive ancora in libertà nelle montagne.",
+nature_text_4:"I paesaggi alternano boschi, laghi e vette rocciose.",
+nature_text_5:"È una destinazione perfetta per trekking e fotografia.",
+nature_text_6:"Un ecosistema unico e ancora intatto.",
+nature_button:"Scopri cultura",
+
+culture_title:"Cultura e tradizioni",
+culture_text_1:"I borghi abruzzesi conservano un patrimonio storico straordinario.",
+culture_text_2:"L’Aquila è il cuore culturale della regione.",
+culture_text_3:"Rocca Calascio è uno dei castelli più iconici d’Italia.",
+culture_text_4:"Le tradizioni popolari sono ancora molto vive.",
+culture_text_5:"Ogni paese racconta una storia secolare.",
+culture_text_6:"Arte, musica e feste animano il territorio.",
+culture_button:"Scopri cucina",
+
+food_title:"Tradizione gastronomica",
+food_text_1:"La cucina abruzzese nasce da tradizioni pastorali e contadine.",
+food_text_2:"Gli arrosticini sono il simbolo gastronomico della regione.",
+food_text_3:"La pasta alla chitarra è una specialità artigianale.",
+food_text_4:"I vini locali sono apprezzati in tutto il mondo.",
+food_text_5:"Ogni piatto racconta la storia del territorio.",
+food_text_6:"Sapori autentici e semplici ma intensi.",
+food_button:"Apri mappa",
+back_button:"Indietro"
+},
+
+en:{
+nav_home:"Home",
+nav_nature:"Nature",
+nav_culture:"Culture",
+nav_food:"Cuisine",
+nav_map:"Map",
+
+home_title:"Abruzzo Explorer",
+home_text_1:"Abruzzo is a region between sea and mountains, with incredibly varied landscapes.",
+home_text_2:"From the Adriatic beaches to the peaks of Gran Sasso, the territory is unique.",
+home_text_3:"It is an authentic land still untouched by mass tourism.",
+home_text_4:"Nature is the main attraction here in every season of the year.",
+home_text_5:"Medieval villages preserve very ancient traditions.",
+home_text_6:"A perfect destination for those seeking authenticity and tranquility.",
+home_button:"Discover nature",
+
+nature_title:"Wild Nature",
+nature_text_1:"Abruzzo is one of the greenest regions in Europe.",
+nature_text_2:"The National Park protects rare species such as the Marsican bear.",
+nature_text_3:"The Apennine wolf still lives freely in the mountains.",
+nature_text_4:"The landscapes alternate between forests, lakes and rocky peaks.",
+nature_text_5:"It is a perfect destination for trekking and photography.",
+nature_text_6:"A unique and still untouched ecosystem.",
+nature_button:"Discover culture",
+
+culture_title:"Culture and Traditions",
+culture_text_1:"Abruzzo's villages preserve an extraordinary historical heritage.",
+culture_text_2:"L'Aquila is the cultural heart of the region.",
+culture_text_3:"Rocca Calascio is one of Italy's most iconic castles.",
+culture_text_4:"Popular traditions are still very much alive.",
+culture_text_5:"Every village tells a centuries-old story.",
+culture_text_6:"Art, music and festivals bring life to the region.",
+culture_button:"Discover cuisine",
+
+food_title:"Gastronomic Tradition",
+food_text_1:"Abruzzo cuisine comes from pastoral and rural traditions.",
+food_text_2:"Arrosticini are the gastronomic symbol of the region.",
+food_text_3:"Pasta alla chitarra is a handcrafted specialty.",
+food_text_4:"Local wines are appreciated all over the world.",
+food_text_5:"Every dish tells the story of the territory.",
+food_text_6:"Authentic and simple yet intense flavors.",
+food_button:"Open map",
+
+back_button:"Back"
+},
+es:{
+nav_home:"Inicio",
+nav_nature:"Naturaleza",
+nav_culture:"Cultura",
+nav_food:"Cocina",
+nav_map:"Mapa",
+
+home_title:"Explorador de Abruzzo",
+home_text_1:"Abruzzo es una región entre el mar y la montaña, con paisajes increíblemente variados.",
+home_text_2:"Desde las playas del Adriático hasta las cumbres del Gran Sasso, el territorio es único.",
+home_text_3:"Es una tierra auténtica y aún poco afectada por el turismo masivo.",
+home_text_4:"Aquí la naturaleza es protagonista en todas las estaciones del año.",
+home_text_5:"Los pueblos medievales conservan tradiciones muy antiguas.",
+home_text_6:"Un lugar perfecto para quienes buscan autenticidad y tranquilidad.",
+home_button:"Descubrir la naturaleza",
+
+nature_title:"Naturaleza salvaje",
+nature_text_1:"Abruzzo es uno de los territorios más verdes de Europa.",
+nature_text_2:"El Parque Nacional protege especies raras como el oso marsicano.",
+nature_text_3:"El lobo de los Apeninos aún vive libremente en las montañas.",
+nature_text_4:"Los paisajes alternan bosques, lagos y cumbres rocosas.",
+nature_text_5:"Es un destino perfecto para el senderismo y la fotografía.",
+nature_text_6:"Un ecosistema único y todavía intacto.",
+nature_button:"Descubrir la cultura",
+
+culture_title:"Cultura y tradiciones",
+culture_text_1:"Los pueblos de Abruzzo conservan un extraordinario patrimonio histórico.",
+culture_text_2:"L'Aquila es el corazón cultural de la región.",
+culture_text_3:"Rocca Calascio es uno de los castillos más emblemáticos de Italia.",
+culture_text_4:"Las tradiciones populares siguen muy vivas.",
+culture_text_5:"Cada pueblo cuenta una historia centenaria.",
+culture_text_6:"Arte, música y fiestas animan el territorio.",
+culture_button:"Descubrir la cocina",
+
+food_title:"Tradición gastronómica",
+food_text_1:"La cocina de Abruzzo nace de tradiciones pastoriles y campesinas.",
+food_text_2:"Los arrosticini son el símbolo gastronómico de la región.",
+food_text_3:"La pasta alla chitarra es una especialidad artesanal.",
+food_text_4:"Los vinos locales son apreciados en todo el mundo.",
+food_text_5:"Cada plato cuenta la historia del territorio.",
+food_text_6:"Sabores auténticos, simples pero intensos.",
+food_button:"Abrir mapa",
+
+back_button:"Atrás"
+}
+};
+
+/* LANGUAGE */
+function setLanguage(lang){
+const dict = translations[lang];
+document.querySelectorAll("[data-key]").forEach(el=>{
+const key = el.getAttribute("data-key");
+if(dict && dict[key]) el.textContent = dict[key];
+});
+}
+
+/* INIT */
+window.addEventListener("DOMContentLoaded",()=>{
+setLanguage("it");
+});
