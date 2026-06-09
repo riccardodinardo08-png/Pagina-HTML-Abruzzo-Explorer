@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abruzzo Explorer Ultimate</title>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+<button onclick="showPage('home')" data-key="nav_home"></button>
+<button onclick="showPage('nature')" data-key="nav_nature"></button>
+<button onclick="showPage('culture')" data-key="nav_culture"></button>
+<button onclick="showPage('food')" data-key="nav_food"></button>
+<button onclick="showPage('map')" data-key="nav_map"></button>
+</nav>
+
+<div class="translate">
+<button onclick="setLanguage('it')">IT</button>
+<button onclick="setLanguage('en')">EN</button>
+<button onclick="setLanguage('es')">ES</button>
+</div>
+
+<!-- HOME -->
+<section class="screen active" id="home">
+<div class="overlay center">
+
+<h1 data-key="home_title"></h1>
+
+<p data-key="home_text_1"></p>
+<p data-key="home_text_2"></p>
+<p data-key="home_text_3"></p>
+<p data-key="home_text_4"></p>
+<p data-key="home_text_5"></p>
+<p data-key="home_text_6"></p>
+
+<div class="btn-group">
+<button class="btn right" onclick="showPage('nature')" data-key="home_button"></button>
+</div>
+
+</div>
+</section>
+
+<!-- NATURE -->
+<section class="screen" id="nature">
+<div class="overlay center">
+
+<h1 data-key="nature_title"></h1>
+
+<p data-key="nature_text_1"></p>
+<p data-key="nature_text_2"></p>
+<p data-key="nature_text_3"></p>
+<p data-key="nature_text_4"></p>
+<p data-key="nature_text_5"></p>
+<p data-key="nature_text_6"></p>
+
+<div class="btn-group">
+<button class="btn left" onclick="showPage('home')" data-key="back_button"></button>
+<button class="btn right" onclick="showPage('culture')" data-key="nature_button"></button>
+</div>
+
+</div>
+</section>
+
+<!-- CULTURE -->
+<section class="screen" id="culture">
+<div class="overlay center">
+
+<h1 data-key="culture_title"></h1>
+
+<p data-key="culture_text_1"></p>
+<p data-key="culture_text_2"></p>
+<p data-key="culture_text_3"></p>
+<p data-key="culture_text_4"></p>
+<p data-key="culture_text_5"></p>
+<p data-key="culture_text_6"></p>
+
+<div class="btn-group">
+<button class="btn left" onclick="showPage('nature')" data-key="back_button"></button>
+<button class="btn right" onclick="showPage('food')" data-key="culture_button"></button>
+</div>
+
+</div>
+</section>
+
+<!-- FOOD -->
+<section class="screen" id="food">
+<div class="overlay center">
+
+<h1 data-key="food_title"></h1>
+
+<p data-key="food_text_1"></p>
+<p data-key="food_text_2"></p>
+<p data-key="food_text_3"></p>
+<p data-key="food_text_4"></p>
+<p data-key="food_text_5"></p>
+<p data-key="food_text_6"></p>
+
+<div class="btn-group">
+<button class="btn left" onclick="showPage('culture')" data-key="back_button"></button>
+<button class="btn right" onclick="showPage('map')" data-key="food_button"></button>
+</div>
+
+</div>
+</section>
+
+<!-- MAP -->
+<section class="screen" id="map">
+<div id="mapBox"></div>
+<button class="btn left map-back" onclick="showPage('food')" data-key="back_button"></button>
+</section>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
