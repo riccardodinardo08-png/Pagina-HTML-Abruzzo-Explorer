@@ -116,9 +116,9 @@ food_text_4:"Local wines are appreciated all over the world.",
 food_text_5:"Every dish tells the story of the territory.",
 food_text_6:"Authentic and simple yet intense flavors.",
 food_button:"Open map",
-
 back_button:"Back"
 },
+
 es:{
 nav_home:"Inicio",
 nav_nature:"Naturaleza",
@@ -161,7 +161,6 @@ food_text_4:"Los vinos locales son apreciados en todo el mundo.",
 food_text_5:"Cada plato cuenta la historia del territorio.",
 food_text_6:"Sabores auténticos, simples pero intensos.",
 food_button:"Abrir mapa",
-
 back_button:"Atrás"
 }
 };
@@ -178,4 +177,45 @@ if(dict && dict[key]) el.textContent = dict[key];
 /* INIT */
 window.addEventListener("DOMContentLoaded",()=>{
 setLanguage("it");
+});
+
+/* 🔊 AUDIO (SOSTITUITO E FUNZIONANTE) */
+
+const audio = new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+audio.loop = true;
+audio.volume = 0.25;
+
+let audioStarted = false;
+
+window.addEventListener("DOMContentLoaded", () => {
+
+const audioBtn = document.getElementById("audioBtn");
+
+if (!audioBtn) return;
+
+audioBtn.addEventListener("click", async () => {
+
+try {
+
+if (!audioStarted) {
+await audio.play();
+audioStarted = true;
+audioBtn.textContent = "🔇";
+return;
+}
+
+if (audio.paused) {
+await audio.play();
+audioBtn.textContent = "🔇";
+} else {
+audio.pause();
+audioBtn.textContent = "🔊";
+}
+
+} catch (err) {
+console.log("Audio error:", err);
+}
+
+});
+
 });
