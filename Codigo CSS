@@ -126,23 +126,39 @@ height:600px;
 border-radius:20px;
 }
 
-/* =========================
-   🌄 SFONDI (FIX DEFINITIVO)
-========================= */
+/* SFONDI */
+#home{background-image:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");}
+#nature{background-image:url("https://cdn.pixabay.com/photo/2015/12/01/20/28/forest-1072828_1280.jpg");}
+#culture{background-image:url("https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocca_Calascio_2016.jpg");}
+#food{background-image:url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Arrosticini_abruzzesi.jpg");}
 
-#home{
-background-image:url("https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=80");
+/* 🔊 AUDIO BUTTON (AGGIUNTA) */
+#audioBtn {
+position:fixed;
+bottom:90px;
+right:20px;
+
+width:55px;
+height:55px;
+
+border:none;
+border-radius:50%;
+
+background:rgba(46,204,113,0.9);
+color:white;
+
+font-size:22px;
+cursor:pointer;
+
+box-shadow:0 4px 12px rgba(0,0,0,0.35);
+z-index:10000;
+
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+
+transition:transform 0.2s ease;
 }
 
-#nature{
-background-image:url("https://cdn.pixabay.com/photo/2015/12/01/20/28/forest-1072828_1280.jpg");
-}
-
-/* ✔ CULTURA ABRUZZO FIX 100% FUNZIONANTE */
-#culture{
-background-image:url("https://upload.wikimedia.org/wikipedia/commons/5/5f/Rocca_Calascio_2016.jpg");
-}
-
-#food{
-background-image:url("https://upload.wikimedia.org/wikipedia/commons/6/6f/Arrosticini_abruzzesi.jpg");
+#audioBtn:hover{
+transform:scale(1.08);
 }
