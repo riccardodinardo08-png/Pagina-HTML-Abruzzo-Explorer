@@ -26,6 +26,9 @@
 <button onclick="setLanguage('es')">ES</button>
 </div>
 
+<!-- 🔊 SOLO AGGIUNTA -->
+<button id="audioBtn" aria-label="Audio">🔊</button>
+
 <!-- HOME -->
 <section class="screen active" id="home">
 <div class="overlay center">
